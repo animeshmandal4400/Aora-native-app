@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const CustomBottom = ({title, handlePress, containerStyle, textStyle, isLoading}) => {
+const CustomButton = ({title, handlePress, containerStyle, textStyle, isLoading}) => {
   return (
     <TouchableOpacity
         onPress={handlePress}
@@ -14,4 +14,4 @@ const CustomBottom = ({title, handlePress, containerStyle, textStyle, isLoading}
   )
 }
 
-export default CustomBottom
+export default CustomButton
