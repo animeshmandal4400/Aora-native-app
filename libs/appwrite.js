@@ -92,3 +92,28 @@ export async function getCurrentUser() {
       return null;
     }
   }
+
+  export async function getAllPosts() {
+    try {
+        const posts = await databases.listDocuments(
+            appwriteConfig.databaseId,
+            appwriteConfig.videosCollectionId
+        )
+        return posts.documents;
+    } catch (error) {
+        throw new Error(error)
+    }
+  }
+
+  export async function getLatestPosts() {
+    try {
+        const posts = await databases.listDocuments(
+            appwriteConfig.databaseId,
+            appwriteConfig.videosCollectionId,
+            [Query.orderDesc('$createdAt', Query.limit(7))]
+        )
+        return posts.documents;
+    } catch (error) {
+        throw new Error(error)
+    }
+  }
